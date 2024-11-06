@@ -822,7 +822,6 @@ imports = [ ./nm-overrides.nix ];
           blacklist snd_pcsp
           blacklist usbkbd
           blacklist usbmouse
-          blacklist zram
           blacklist bluetooth
 
 
