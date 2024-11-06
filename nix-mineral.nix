@@ -822,7 +822,8 @@ imports = [ ./nm-overrides.nix ];
           blacklist snd_pcsp
           blacklist usbkbd
           blacklist usbmouse
-
+          blacklist zram
+          blacklist bluetooth
 
 
           ### secureblue/secureblue
@@ -926,17 +927,17 @@ imports = [ ./nm-overrides.nix ];
 
     # Hide processes from other users except root, may cause breakage.
     # See overrides, in desktop section.
-    "/proc" = {
-      fsType = "proc";
-      device = "proc";
-      options = [ "nosuid" "nodev" "noexec" "hidepid=2" "gid=proc" ];
-    };
+    #"/proc" = {
+    #  fsType = "proc";
+    #  device = "proc";
+    #  options = [ "nosuid" "nodev" "noexec" "hidepid=2" "gid=proc" ];
+    #};
   };
 
   # Add "proc" group to whitelist /proc access and allow systemd-logind to view
   # /proc in order to unbreak it.
-  users.groups.proc = {};
-  systemd.services.systemd-logind.serviceConfig = { SupplementaryGroups = [ "proc" ]; };
+  #users.groups.proc = {};
+  #systemd.services.systemd-logind.serviceConfig = { SupplementaryGroups = [ "proc" ]; };
 
   # Enables firewall. You may need to tweak your firewall rules depending on
   # your usecase. On a desktop, this shouldn't cause problems. 
@@ -1010,7 +1011,7 @@ imports = [ ./nm-overrides.nix ];
 
     # Prevent BadUSB attacks, but requires whitelisting of USB devices. 
     usbguard = {   
-      enable = true;
+      enable = false;
     };
   };
 
