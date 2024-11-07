@@ -823,6 +823,7 @@ imports = [ ./nm-overrides.nix ];
           blacklist usbkbd
           blacklist usbmouse
           blacklist bluetooth
+          blacklist zram
 
 
           ### secureblue/secureblue
@@ -1063,7 +1064,7 @@ imports = [ ./nm-overrides.nix ];
   # that sensitive data is written to disk, and eliminates it if zram is used
   # to completely replace swap to disk. Generally *improves* storage lifespan
   # and performance, there usually isn't a need to disable this.
-  zramSwap = { enable = true; };
+  zramSwap = { enable = false; };
 
   # Limit access to nix to users with the "wheel" group. ("sudoers")
   nix.settings.allowed-users = mkForce [ ("@wheel") ];
