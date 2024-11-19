@@ -168,7 +168,7 @@
   # Disable bluetooth entirely. nix-mineral borrows a privacy preserving
   # bluetooth configuration file by default, but if you never use bluetooth
   # at all, this can reduce attack surface further.
-  # nm-overrides.security.disable-bluetooth.enable = true;
+  nm-overrides.security.disable-bluetooth.enable = true;
 
   # Disable Intel ME related kernel modules. This is to avoid putting trust in
   # the highly privilege ME system, but there are potentially other
